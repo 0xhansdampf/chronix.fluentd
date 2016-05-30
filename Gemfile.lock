@@ -1,0 +1,86 @@
+PATH
+  remote: .
+  specs:
+    fluent-plugin-chronix (0.9.1)
+      fluentd (>= 0.12.1)
+      msgpack
+      protobuf
+      rsolr
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.2.6)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    builder (3.2.2)
+    cool.io (1.4.3)
+    diff-lcs (1.2.5)
+    fluentd (0.12.22)
+      cool.io (>= 1.2.2, < 2.0.0)
+      http_parser.rb (>= 0.5.1, < 0.7.0)
+      json (>= 1.4.3)
+      msgpack (>= 0.5.11, < 0.6.0)
+      sigdump (~> 0.2.2)
+      string-scrub (>= 0.0.3)
+      tzinfo (>= 1.0.0)
+      tzinfo-data (>= 1.0.0)
+      yajl-ruby (~> 1.0)
+    http_parser.rb (0.6.0)
+    i18n (0.7.0)
+    json (1.8.3)
+    middleware (0.1.0)
+    minitest (5.8.4)
+    msgpack (0.5.12)
+    power_assert (0.2.7)
+    protobuf (3.6.7)
+      activesupport (>= 3.2)
+      middleware
+      thor
+      thread_safe
+    rake (11.1.2)
+    rr (1.1.2)
+    rsolr (1.1.1)
+      builder (>= 2.1.2)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.4)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
+    sigdump (0.2.4)
+    string-scrub (0.0.5)
+    test-unit (3.1.8)
+      power_assert
+    test-unit-rr (1.0.5)
+      rr (>= 1.1.1)
+      test-unit (>= 2.5.2)
+    thor (0.19.1)
+    thread_safe (0.3.5)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    tzinfo-data (1.2016.4)
+      tzinfo (>= 1.0.0)
+    yajl-ruby (1.2.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler
+  fluent-plugin-chronix!
+  minitest
+  rake
+  rspec
+  test-unit
+  test-unit-rr

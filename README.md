@@ -1,2 +1,1 @@
-# chronix.fluentd
-A Chronix fluentd plugin.
+# Fluentd Plugin for chronix
