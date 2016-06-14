@@ -58,14 +58,17 @@ module Fluent
 
       # add each event to our hash, sorted by metrics as key
       chunk.msgpack_each {|(tag, time, record)|
-#        puts "tag: #{tag}, time: #{time}, record: #{record}"
 
         timestamp = time.to_i
         metric = record["metric"]
 
         # if there is no list for the current metric -> create a new one
         if pointHash[metric] == nil
-          pointHash[metric] = {"startTime" => timestamp, "lastTimestamp" => 0, "points" => Chronix::Points.new, "prevDelta" => 0, "timeSinceLastDelta" => 0, "lastStoredDate" => timestamp}
+          if record["chronix_type"] == "strace"
+            pointHash[metric] = {"startTime" => timestamp, "lastTimestamp" => 0, "points" => Chronix::StracePoints.new, "prevDelta" => 0, "timeSinceLastDelta" => 0, "lastStoredDate" => timestamp}
+          else
+            pointHash[metric] = {"startTime" => timestamp, "lastTimestamp" => 0, "points" => Chronix::Points.new, "prevDelta" => 0, "timeSinceLastDelta" => 0, "lastStoredDate" => timestamp}
+          end
         end
 
         if pointHash[metric]["lastTimestamp"] == 0
@@ -113,7 +116,6 @@ module Fluent
     end
 
     def createChronixPoint(delta, value, type = "")
-#      puts "delta: #{delta}, value: #{value}"
       if type == "strace"
         return Chronix::StracePoint.new( :t => delta, :v => value )
       else
